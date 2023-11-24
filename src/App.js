@@ -32,13 +32,13 @@ function App() {
       })
   }
 
-  function handleCreatePostNav() {
-    if(!isAuth) {
-      alert("Please Sign in to Create Posts!");
-    } else {
-      window.location.pathname = "/createpost";
-    }
-  }
+  // function handleCreatePostNav() {
+  //   if(!isAuth) {
+  //     alert("Please Sign in to Create Posts!");
+  //   } else {
+  //     window.location.pathname = "/createpost";
+  //   }
+  // }
 
   return (
     <div className="App">
@@ -46,11 +46,11 @@ function App() {
         {/* Navigation */}
         <nav className="">
           <Link to="/">Home</Link>
-          <Link onClick={handleCreatePostNav}>Create Post</Link>
+          {isAuth && <Link to="/createpost">Create Post</Link>}
           {/* if not login ==> show login btn */}
           {!isAuth && <Link to="/login">Login</Link>}
           {/* log out */}
-          {isAuth && <Link onClick={handleLogout}>Logout</Link>}
+          {isAuth && <button className='logoutBtn' onClick={handleLogout}>Logout</button>}
         </nav>
 
         {/* Pages */}

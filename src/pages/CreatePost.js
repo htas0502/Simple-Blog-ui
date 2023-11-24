@@ -21,17 +21,15 @@ function CreatePost({ isAuth }) {
                 id: auth.currentUser.uid,
             },
         });
-        navigate('/');
+        navigate("/");
     }
 
     // Route protection.
     useEffect(() => {
-        if (!isAuth) {
-            navigate("/error");
-        } else {
-            navigate("/createpost");
-        }
-    }, [])
+    if (!isAuth) {
+        navigate("/login");
+    }
+    }, []);
 
     return <div className="createPostPage">
         <div className="cpContainer">
